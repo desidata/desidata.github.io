@@ -17,10 +17,16 @@
     <section class="spotlight" aria-label="Explore a map">
       <div class="story">
         <div class="story-label">India through maps</div>
-        <div aria-live="polite"><h1 id="question"></h1><p id="teaser"></p></div>
+        <div><h1 id="question"></h1><p id="teaser"></p></div>
         <a id="story-link" target="_blank" rel="noopener noreferrer">Explore on Instagram ↗</a>
       </div>
-      <div class="artboard"><a id="art-link" target="_blank" rel="noopener noreferrer"><img id="art" alt=""></a></div>
+      <div class="artboard"><a id="art-link" target="_blank" rel="noopener noreferrer"><img id="art" alt=""></a>
+        <div class="slide-controls" hidden>
+          <button type="button" data-step="-1" aria-label="Previous map">‹</button>
+          <output aria-live="off"></output>
+          <button type="button" data-step="1" aria-label="Next map">›</button>
+          <button type="button" class="pause" aria-label="Toggle automatic slides">Pause</button>
+        </div></div>
       <div class="topics" aria-label="Choose a map story"></div>
     </section>
     <section id="collection" aria-labelledby="gallery-title">
