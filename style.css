@@ -7,6 +7,16 @@ header { display: flex; align-items: center; justify-content: space-between; gap
 .logo { display: inline-flex; align-items: center; font: bold 32px Georgia, serif; letter-spacing: -.075em; }
 .logo img { width: clamp(40px, 5vw, 66px); height: auto; margin-right: 8px; }
 .logo span, h1 em { color: var(--accent); }
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo img {
+  height: 32px;
+  width: auto;
+}
 nav, footer { display: flex; align-items: center; gap: 25px; }
 nav a, footer a { font-size: 14px; font-weight: 650; }
 .follow { padding: 12px 18px; border-radius: 30px; background: var(--ink); color: white; }
