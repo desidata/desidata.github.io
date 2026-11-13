@@ -72,3 +72,96 @@ footer { background: #e6ece1; }
 .slide-controls output, .slide-controls .pause { font-size: 13px; }
 .topics { flex-wrap: wrap; }
 .topics button { flex: 1 1 90px; }
+
+/* DesiData red theme — paste at the end of style.css */
+
+:root {
+  --ink: #302326;
+  --paper: #fcf8f3;
+  --accent: #a51e35;
+}
+
+header {
+  border-bottom-color: #dfceca;
+}
+
+.follow {
+  background-color: var(--accent);
+  color: white;
+}
+
+.spotlight {
+  background-color: #641728;
+  color: #fff6e9;
+}
+
+.story-label {
+  color: #ffd1b8;
+}
+
+#teaser {
+  color: #f7e1dc;
+}
+
+#story-link {
+  background-color: #fff6e9;
+  color: #641728;
+}
+
+.artboard {
+  background-color: #f4dedb;
+  background-image: repeating-radial-gradient(
+    ellipse at 105% 115%,
+    transparent 0 16px,
+    rgb(125 39 55 / 12%) 17px 18px
+  );
+}
+
+.topics {
+  background-color: #501320;
+}
+
+.topics button {
+  color: #f3d9dc;
+}
+
+.topics button[aria-pressed="true"] {
+  background-color: #8b2940;
+  border-top-color: #ffd1b8;
+  color: white;
+}
+
+.topics button:focus-visible {
+  outline-color: #fff6e9;
+}
+
+.slide-controls {
+  background-color: var(--paper);
+  color: var(--ink);
+}
+
+.sheet {
+  --mat: #f1d4ce;
+}
+
+.card:nth-child(3n + 2) .sheet {
+  --mat: #eae0d5;
+}
+
+.card:nth-child(3n) .sheet {
+  --mat: #ead8df;
+}
+
+.caption {
+  border-bottom-color: #d9c6c8;
+}
+
+.caption span {
+  border-color: #cba9ae;
+  color: var(--accent);
+}
+
+footer {
+  background-color: #f3e5e2;
+  border-top-color: #dfc8c6;
+}
