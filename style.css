@@ -42,6 +42,25 @@ a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 .caption span::before { content: ''; width: 7px; height: 7px; border-top: 2px solid; border-right: 2px solid; }
 :root { --ink: #182e2c; --accent: #086e5f; --paper: #f9f8f2; }
 main { padding-top: 22px; }
-
-.question { margin: 7px 0 0; font: 15px/1.45 Inter, Arial, sans-serif; color: #4f605c; }
-.question:empty { display: none; }
+.spotlight { display: grid; grid-template-columns: 1fr .9fr; border-radius: 20px; overflow: hidden; background: #102f2d; color: #fbf7e9; }
+.story { padding: clamp(24px,3.8vw,62px); align-self: center; }
+.story-label { color: #e1f099; font-weight: 700; font-size: 15px; }
+#question { font: 500 clamp(34px,4.35vw,75px)/1.02 Georgia,serif; letter-spacing: -.055em; margin: 18px 0 12px; }
+#teaser { line-height: 1.5; color: #daebe1; max-width: 43ch; }
+#story-link { display: inline-block; background: #dfef94; color: #152d29; padding: 12px 17px; border-radius: 6px; font-weight: bold; margin-top: 8px; }
+.artboard { display: grid; place-items: center; padding: 22px; background-color: #c3d4b3; background-image: repeating-radial-gradient(ellipse at 105% 115%, transparent 0 16px,#546e582b 17px 18px); }
+.artboard a { display: flex; align-items: center; justify-content: center; width: 100%; }
+.artboard img { width: auto; height: clamp(240px,24vw,360px); max-width: 100%; object-fit: contain; filter: drop-shadow(0 8px 9px #152b2938); }
+.topics { grid-column: 1/-1; display: flex; background: #193a37; }
+.topics button { flex: 1; cursor: pointer; padding: 14px 5px; font: inherit; color: #d5e1d8; background: transparent; border: 0; border-top: 3px solid transparent; }
+.topics button[aria-pressed=true] { border-color: #dfef94; background: #254a45; color: white; }
+#collection { margin-top: 38px; }
+#gallery-title { font: 500 clamp(30px,3.5vw,52px)/1 Georgia,serif; letter-spacing: -.055em; margin: 0 0 22px; }
+footer { background: #e6ece1; }
+@media(max-width:700px) {
+  .spotlight { grid-template-columns: 1fr; }
+  .story { padding: 24px; }
+  .artboard { padding: 12px; }
+  .artboard img { height: 190px; }
+  .topics button { font-size: 13px; }
+}
