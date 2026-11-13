@@ -5,7 +5,7 @@ a { color: inherit; text-decoration: none; }
 header, main, footer { padding-inline: max(5vw, calc((100vw - 1350px)/2)); }
 header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding-block: 20px; border-bottom: 1px solid #d2d0ce; }
 .logo { display: inline-flex; align-items: center; font: bold 32px Georgia, serif; letter-spacing: -.075em; }
-.logo::before { content: ''; width: 25px; height: 25px; margin-right: 8px; border-radius: 50%; background: repeating-radial-gradient(ellipse at 10% 90%, var(--accent) 0 2px, transparent 3px 5px); }
+.logo img { width: clamp(40px, 5vw, 66px); height: auto; margin-right: 8px; }
 .logo span, h1 em { color: var(--accent); }
 nav, footer { display: flex; align-items: center; gap: 25px; }
 nav a, footer a { font-size: 14px; font-weight: 650; }
