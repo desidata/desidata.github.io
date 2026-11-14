@@ -5,13 +5,13 @@
     "filename": "child_marriage.csv"
   },
   {
-    "id": "condom_usage",
+    "id": "condomusage26",
     "title": "Condom Usage in India",
-    "filename": "condoms.csv"
+    "filename": "condoms.xls"
   },
   {
-    "id": "dynasty_democracy",
+    "id": "dynastydemocracy24",
     "title": "Dynasty and Democracy in India",
-    "filename": "dynasty.csv"
+    "filename": "dynasty.xlsx"
   }
 ]
