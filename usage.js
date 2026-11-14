@@ -26,7 +26,18 @@ async function loadDownloads() {
     const files = release.assets.filter(file => file.state === "uploaded");
     const total = files.reduce((sum, file) => sum + file.download_count, 0);
     const highest = Math.max(0, ...files.map(file => file.download_count));
-    const title = file => file.label || file.name;
+    const titles = {
+      "child_marriage.csv": "Marriage before 18",
+      "condoms.xls": "Condom use in India",
+      "dynasty.xlsx": "Dynasty in Democracy",
+      "female_director.csv": "Startups with a woman director",
+      "hiv_2023.xlsx": "HIV prevalence"
+    };
+
+    function title(file) {
+      return titles[file.name] || file.label ||
+        file.name.replace(/\.[^.]+$/, "").replace(/[_-]+/g, " ");
+    }
 
     document.querySelector("#downloads").textContent = total.toLocaleString();
     document.querySelector("#available").textContent = files.length;
@@ -34,20 +45,50 @@ async function loadDownloads() {
       ? files.filter(file => file.download_count === highest).map(title).join(" · ")
       : "No downloads yet";
 
-    const list = document.querySelector("#files");
+    const filesByTitle = new Map(files.map(file => [title(file), file]));
+    const sourceList = document.querySelector(".sources");
 
-    list.replaceChildren(...files.map(file => {
-      const item = document.createElement("li");
+    // Remove rows generated on a previous refresh before rebuilding them.
+    sourceList.querySelectorAll("[data-release-row]").forEach(row => row.remove());
+
+    function showDownload(term, file) {
       const link = document.createElement("a");
-
       link.href = file.browser_download_url;
-      link.textContent = "Download " + title(file);
-      item.append(link, " · " + file.download_count.toLocaleString() + " downloads");
+      link.textContent = title(file);
+      link.setAttribute("aria-label", "Download " + title(file));
+      link.style.color = "var(--accent)";
+      link.style.textDecoration = "underline";
+      link.style.textUnderlineOffset = "3px";
+      term.replaceChildren(link);
+    }
 
-      return item;
-    }));
+    for (const term of sourceList.querySelectorAll("dt")) {
+      const name = term.textContent.trim();
+      const file = filesByTitle.get(name);
 
-    list.hidden = !files.length;
+      if (file) {
+        showDownload(term, file);
+        filesByTitle.delete(name);
+      } else {
+        term.textContent = name;
+      }
+    }
+
+    // Show future uploads even before you add their source credits.
+    for (const file of filesByTitle.values()) {
+      const row = document.createElement("div");
+      row.dataset.releaseRow = "";
+      const term = document.createElement("dt");
+      const source = document.createElement("dd");
+      source.textContent = "Source details pending";
+      showDownload(term, file);
+      row.append(term, source);
+      sourceList.append(row);
+    }
+
+    const list = document.querySelector("#files");
+    list.replaceChildren();
+    list.hidden = true;
     note.textContent = files.length
       ? "Counts reported by GitHub for the files listed below."
       : "No dataset files have been attached yet.";
