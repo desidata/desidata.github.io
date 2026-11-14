@@ -6,7 +6,7 @@ const firstPath = location.pathname.split("/").filter(Boolean)[0];
 const repository = repositoryOverride || owner + "/" +
   (firstPath && !firstPath.endsWith(".html") ? firstPath : location.hostname);
 
-const releasePage = "https://github.com/" + repository + "/releases/tag/datasets";
+const releasePage = "https://github.com/" + repository + "/releases/tag/first_upload";
 const note = document.querySelector("#usage-note");
 let loading = false;
 
@@ -16,7 +16,7 @@ async function loadDownloads() {
 
   try {
     const response = await fetch(
-      "https://api.github.com/repos/" + repository + "/releases/tags/datasets",
+      "https://api.github.com/repos/" + repository + "/releases/tags/first_upload",
       { cache: "no-cache" }
     );
 
