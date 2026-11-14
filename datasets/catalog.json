@@ -1,0 +1,17 @@
+[
+  {
+    "id": "marriagebefore18",
+    "title": "Marriage before 18 (NFHS-5, 2019–21)",
+    "filename": "child_marriage.csv"
+  },
+  {
+    "id": "condom_usage",
+    "title": "Condom Usage in India",
+    "filename": "condoms.csv"
+  },
+  {
+    "id": "dynasty_democracy",
+    "title": "Dynasty and Democracy in India",
+    "filename": "dynasty.csv"
+  }
+]

@@ -1,0 +1,1 @@
+CREATE TABLE dataset_downloads (dataset_id TEXT PRIMARY KEY NOT NULL, total INTEGER NOT NULL DEFAULT 0);

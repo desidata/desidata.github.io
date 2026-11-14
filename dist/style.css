@@ -89,3 +89,12 @@ nav a[aria-current="page"] { color: var(--accent); text-decoration: underline; t
   .sources div { grid-template-columns: 1fr; gap: 5px; }
   .bio { flex-direction: column; }
 }
+
+.usage { margin-block: 2rem; padding: clamp(20px, 3vw, 38px); background: #fff5f1; border: 1px solid #dfc8c6; border-top: 4px solid var(--accent); border-radius: 12px; }
+.usage h2 { margin: 0; font: 500 1.75rem Georgia, serif; }
+.usage dl { display: grid; grid-template-columns: 1fr 1fr 1.5fr; gap: 22px; margin: 24px 0; }
+.usage dt { font-size: .9rem; }
+.usage dd { margin: .35rem 0 0; font: 600 1.65rem Georgia, serif; color: var(--accent); }
+.usage p { margin-bottom: 0; }
+#files a { color: var(--accent); text-decoration: underline; }
+@media (max-width: 600px) { .usage dl { grid-template-columns: 1fr 1fr; } .usage dl div:last-child { grid-column: 1/-1; } }
