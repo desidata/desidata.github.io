@@ -3,7 +3,7 @@ const maps = [
   {
     topic: "Public health",
     "title": "Women aged 20–24 who married before 18, 2019–21",
-    "image": "cm_labeled.webp",
+    "image": "maps_images/cm_labeled.webp",
     "alt": "NFHS-5 map showing the percentage by state and union territory.",
     "post": "https://www.instagram.com/desidata.info/",
     "page": "maps/marriage-before-18.html"
@@ -11,28 +11,28 @@ const maps = [
   {
     topic: "Politics",
     "title": "Dynasty in Democracy",
-    "image": "dynasty.webp",
+    "image": "maps_images/dynasty.webp",
     "alt": "Share of sitting MPs, MLAs and MLCs with dynastic backgrounds by state and union territory.",
     "post": "https://www.instagram.com/desidata.info/"
   },
   {
     topic: "Business",
     "title": "Startups with a woman director, 2025",
-    "image": "female_director.webp",
+    "image": "maps_images/female_director.webp",
     "alt": "Statewise counts of startups with at least one woman director.",
     "post": "https://www.instagram.com/desidata.info/"
   },
   {
     topic: "Search trends",
     "title": "Where India searched for “Ghibli”",
-    "image": "ghibli.webp",
+    "image": "maps_images/ghibli.webp",
     "alt": "Relative Google search interest by state, March 24–31, 2025.",
     "post": "https://www.instagram.com/desidata.info/"
   },
   {
     topic: "Public health",
     "title": "HIV prevalence in India, 2023",
-    "image": "hiv_pos.webp",
+    "image": "maps_images/hiv_pos.webp",
     "alt": "Map of HIV prevalence percentages by state and union territory.",
     "post": "https://www.instagram.com/desidata.info/"
   },
@@ -41,7 +41,7 @@ const maps = [
     question: "Where did a cockroach become a political curiosity?",
     teaser: "From Delhi to Mizoram, trace Google search interest in the Cockroach Janta Party.",
     title: "How India googled the Cockroach Janta Party",
-    image: "cockroach_trend.png",
+    image: "maps_images/cockroach_trend.png",
     alt: "Google Trends map of relative search interest across India, May 19–21",
     post: "https://www.instagram.com/desidata.info/"
   },
@@ -50,7 +50,7 @@ const maps = [
     question: "How connected is rural India?",
     teaser: "Look beyond state averages with a district-by-district view of rural internet penetration.",
     title: "Internet penetration in rural India",
-    image: "internet-preview.jpg",
+    image: "maps_images/internet-preview.jpg",
     alt: "Frame from a district-by-district animation of rural internet penetration",
     post: "https://www.instagram.com/desidata.info/"
   },
@@ -59,7 +59,7 @@ const maps = [
     question: "How does condom use vary across India?",
     teaser: "Compare states and territories using the same measure: couples using condoms per 10,000 unsterilized couples in 2019–20.",
     title: "Condom use in India, 2019–20",
-    image: "condom_north.png",
+    image: "maps_images/condom_north.png",
     alt: "Map showing couples using condoms per 10,000 unsterilized couples across Indian states and territories",
     post: "https://www.instagram.com/p/C8BgXSPthpH/"
   }
