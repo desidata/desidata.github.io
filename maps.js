@@ -5,7 +5,8 @@ const maps = [
     "title": "Women aged 20–24 who married before 18, 2019–21",
     "image": "cm_labeled.webp",
     "alt": "NFHS-5 map showing the percentage by state and union territory.",
-    "post": "https://www.instagram.com/desidata.info/"
+    "post": "https://www.instagram.com/desidata.info/",
+    "page": "maps/marriage-before-18.html"
   },
   {
     topic: "Politics",
@@ -68,7 +69,14 @@ const gallery = document.querySelector("#gallery");
 const template = document.querySelector("#card");
 for (const map of maps) {
   const card = template.content.cloneNode(true);
-  card.querySelector("a").href = map.post;
+  const link = card.querySelector("a");
+  if (map.page) {
+    link.href = map.page;
+    link.removeAttribute("target");
+    link.removeAttribute("rel");
+  } else {
+    link.href = map.post;
+  }
   card.querySelector("h2").textContent = map.title;
   const image = card.querySelector("img");
   image.src = map.image;
