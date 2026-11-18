@@ -10,6 +10,7 @@ header { display: flex; align-items: center; justify-content: space-between; gap
 nav, footer { display: flex; align-items: center; gap: 25px; }
 nav a, footer a { font-size: 14px; font-weight: 650; }
 .follow { padding: 12px 18px; border-radius: 30px; background: var(--accent); color: white; }
+.follow .label-short { display: none; }
 main { padding-block: clamp(28px,4vw,64px) 55px; }
 h1 { font: 500 clamp(43px,6vw,88px)/1 Georgia, serif; letter-spacing: -.065em; margin: 0 0 .46em; }
 h1 em { font-weight: 400; }
@@ -35,7 +36,10 @@ a:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 @media (max-width: 700px) {
   #gallery { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px 12px; }
   header { flex-wrap: wrap; }
-  nav { flex-wrap: wrap; gap: 12px; }
+  nav { flex-wrap: nowrap; gap: 8px; }
+  .follow { padding: 13px 12px; font-size: 13px; }
+  .follow .label-full { display: none; }
+  .follow .label-short { display: inline; }
   .caption { gap: 4px; padding-block: 10px; }
   .caption span { font-size: 12px; }
 }
