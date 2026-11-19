@@ -7,6 +7,7 @@ datasets column uses | to separate multiple files, e.g.:
 """
 import csv, html, json, re, sys
 from pathlib import Path
+from urllib.parse import quote as urlquote
 
 ROOT = Path(__file__).resolve().parent
 
@@ -45,9 +46,9 @@ def e(s):
     return html.escape(s, quote=True)
 
 def build_meta_block(source_name, source_url, datasets_raw, image):
-    source_name = source_name.strip()
-    source_url  = source_url.strip()
-    datasets_raw = datasets_raw.strip()
+    source_name  = (source_name  or '').strip()
+    source_url   = (source_url   or '').strip()
+    datasets_raw = (datasets_raw or '').strip()
     rows = []
     if source_name:
         link = f'<a href="{e(source_url)}">{e(source_name)}</a>' if source_url else e(source_name)
@@ -55,11 +56,11 @@ def build_meta_block(source_name, source_url, datasets_raw, image):
     for fname in (f.strip() for f in datasets_raw.split('|') if f.strip()):
         rows.append(
             f'      <div>\n        <dt>Download data</dt>\n'
-            f'        <dd><a href="../datasets/{e(fname)}" download="{e(fname)}">{e(fname)} ↓</a></dd>\n      </div>'
+            f'        <dd><a href="../datasets/{urlquote(fname)}" download="{e(fname)}">{e(fname)} ↓</a></dd>\n      </div>'
         )
     rows.append(
         f'      <div>\n        <dt>Download map</dt>\n'
-        f'        <dd><a href="../maps_images/{e(image)}" download="{e(image)}">{e(image)} ↓</a></dd>\n      </div>'
+        f'        <dd><a href="../maps_images/{urlquote(image)}" download="{e(image)}">{e(image)} ↓</a></dd>\n      </div>'
     )
     return '    <dl class="sources map-meta">\n' + '\n'.join(rows) + '\n    </dl>\n'
 
@@ -111,11 +112,11 @@ def main():
                 continue
 
             # Build period line
-            period = row['period'].strip()
+            period = (row.get('period') or '').strip()
             period_line = f'    <p class="map-period">{e(period)}</p>\n' if period else ''
 
             # Build takeaway
-            takeaway_raw = row['takeaway'].strip()
+            takeaway_raw = (row.get('takeaway') or '').strip()
             takeaway     = e(takeaway_raw) if takeaway_raw else '[TODO: add 2–3 line takeaway]'
             description  = e(takeaway_raw.split('.')[0] + '.') if takeaway_raw else '[TODO: add description]'
 
