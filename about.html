@@ -12,7 +12,54 @@
     <a class="logo" href="index.html"><img src="LOGO.jpg" alt="">Desi<span>Data</span></a>
     <nav aria-label="Main"><a href="index.html#collection">Map gallery</a><a href="data.html">Data</a><a href="about.html" aria-current="page">About me</a><a class="follow" aria-label="Follow on Instagram" href="https://www.instagram.com/desidata.info/"><span class="label-full">Follow on Instagram</span><span class="label-short">Instagram</span></a></nav>
   </header>
-  <main class="info-page"><h1>About me</h1><article class="bio"><img src="about-photo.webp" alt="Debodeep Banerjee"><div><h2>Debodeep Banerjee</h2><p>I created DesiData to explore India through maps. The questions range from everyday curiosities, like where people searched for Ghibli, to how internet access varies across rural districts.</p><p>I am an applied AI researcher with particular interest in human-AI collaboration. Here, I work with maps to give readers room to explore the evidence and draw their own conclusions.</p><a href="index.html#collection">Explore my maps →</a></div></article></main>
+  <main class="info-page">
+    <h1>About me</h1>
+    <article class="bio">
+      <img src="about-photo.webp" alt="Debodeep Banerjee">
+      <div>
+        <h2>Debodeep Banerjee</h2>
+        <p>I created DesiData to explore India through maps. The questions range from everyday curiosities, like where people searched for Ghibli, to how internet access varies across rural districts.</p>
+        <p>I am an applied AI researcher with particular interest in human-AI collaboration. Here, I work with maps to give readers room to explore the evidence and draw their own conclusions.</p>
+        <a href="index.html#collection">Explore my maps →</a>
+      </div>
+    </article>
+
+    <section class="contact-section">
+      <h2 class="contact-heading">Would love to hear from you</h2>
+      <p class="contact-sub">A thought on a map, a dataset suggestion, or just saying hi — drop me a note.</p>
+      <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" id="contact-form">
+        <label for="contact-name">Name</label>
+        <input id="contact-name" name="name" type="text" placeholder="Your name" autocomplete="name">
+        <label for="contact-email">Email</label>
+        <input id="contact-email" name="email" type="email" placeholder="your@email.com" autocomplete="email" required>
+        <label for="contact-message">Message</label>
+        <textarea id="contact-message" name="message" rows="5" placeholder="What's on your mind?" required></textarea>
+        <button type="submit">Send →</button>
+      </form>
+    </section>
+  </main>
   <footer><strong>Follow the next map.</strong><a href="https://www.instagram.com/desidata.info/">@desidata.info</a></footer>
+  <script>
+    const form = document.getElementById('contact-form');
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('button');
+        btn.disabled = true;
+        btn.textContent = 'Sending…';
+        const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+        if (res.ok) {
+          form.reset();
+          form.hidden = true;
+          form.nextElementSibling && (form.nextElementSibling.hidden = false);
+          form.insertAdjacentHTML('afterend', '<p class="contact-thanks">Thanks! I\'ll get back to you soon.</p>');
+        } else {
+          btn.disabled = false;
+          btn.textContent = 'Send →';
+          alert('Something went wrong — please try again.');
+        }
+      });
+    }
+  </script>
 </body>
 </html>
