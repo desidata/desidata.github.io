@@ -31,6 +31,7 @@ PAGE_TEMPLATE = """\
     <nav aria-label="Main"><a href="../index.html#collection">Map gallery</a><a href="../data.html">Data</a><a href="../about.html">About me</a><a class="follow" aria-label="Follow on Instagram" href="https://www.instagram.com/desidata.info/"><span class="label-full">Follow on Instagram</span><span class="label-short">Instagram</span></a></nav>
   </header>
   <main class="info-page map-page">
+    <a class="map-back" href="../index.html#collection">← Map gallery</a>
     <h1>TITLE</h1>
 PERIOD_LINE    <figure class="map-figure">
       <img src="../maps_images/IMAGE" alt="ALT">
@@ -49,20 +50,20 @@ def build_meta_block(source_name, source_url, datasets_raw, image):
     source_name  = (source_name  or '').strip()
     source_url   = (source_url   or '').strip()
     datasets_raw = (datasets_raw or '').strip()
-    rows = []
+    parts = []
     if source_name:
         link = f'<a href="{e(source_url)}">{e(source_name)}</a>' if source_url else e(source_name)
-        rows.append(f'      <div>\n        <dt>Source</dt>\n        <dd>{link}</dd>\n      </div>')
+        parts.append(f'      <p class="map-source">Source: {link}</p>')
+    downloads = []
     for fname in (f.strip() for f in datasets_raw.split('|') if f.strip()):
-        rows.append(
-            f'      <div>\n        <dt>Download data</dt>\n'
-            f'        <dd><a href="../datasets/{urlquote(fname)}" download="{e(fname)}">{e(fname)} ↓</a></dd>\n      </div>'
+        downloads.append(
+            f'<a href="../datasets/{urlquote(fname)}" download="{e(fname)}">↓ {e(fname)}</a>'
         )
-    rows.append(
-        f'      <div>\n        <dt>Download map</dt>\n'
-        f'        <dd><a href="../maps_images/{urlquote(image)}" download="{e(image)}">{e(image)} ↓</a></dd>\n      </div>'
+    downloads.append(
+        f'<a href="../maps_images/{urlquote(image)}" download="{e(image)}">↓ Download map image</a>'
     )
-    return '    <dl class="sources map-meta">\n' + '\n'.join(rows) + '\n    </dl>\n'
+    parts.append('      <div class="map-downloads">\n        ' + '\n        '.join(downloads) + '\n      </div>')
+    return '    <div class="map-meta">\n' + '\n'.join(parts) + '\n    </div>\n'
 
 def build_js_entry(row):
     d = {}
@@ -117,8 +118,8 @@ def main():
 
             # Build takeaway
             takeaway_raw = (row.get('takeaway') or '').strip()
-            takeaway     = e(takeaway_raw) if takeaway_raw else '[TODO: add 2–3 line takeaway]'
-            description  = e(takeaway_raw.split('.')[0] + '.') if takeaway_raw else '[TODO: add description]'
+            takeaway     = e(takeaway_raw) if takeaway_raw else 'To be added soon.'
+            description  = e(takeaway_raw.split('.')[0] + '.') if takeaway_raw else 'To be added soon.'
 
             meta_block = build_meta_block(row['source_name'], row['source_url'], row['datasets'], image)
 
