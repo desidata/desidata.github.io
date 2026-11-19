@@ -1,40 +1,43 @@
-// Add one entry per post. Image paths are relative to index.html.
 const maps = [
   {
     topic: "Public health",
-    "title": "Women aged 20–24 who married before 18, 2019–21",
-    "image": "maps_images/cm_labeled.webp",
-    "alt": "NFHS-5 map showing the percentage by state and union territory.",
-    "post": "https://www.instagram.com/desidata.info/",
-    "page": "maps/marriage-before-18.html"
+    title: "Women aged 20–24 who married before 18, 2019–21",
+    image: "maps_images/cm_labeled.webp",
+    alt: "NFHS-5 map showing the percentage by state and union territory.",
+    post: "https://www.instagram.com/desidata.info/",
+    page: "maps/marriage-before-18.html",
   },
   {
     topic: "Politics",
-    "title": "Dynasty in Democracy",
-    "image": "maps_images/dynasty.webp",
-    "alt": "Share of sitting MPs, MLAs and MLCs with dynastic backgrounds by state and union territory.",
-    "post": "https://www.instagram.com/desidata.info/"
+    title: "Dynasty in Democracy",
+    image: "maps_images/dynasty.webp",
+    alt: "Share of sitting MPs, MLAs and MLCs with dynastic backgrounds by state and union territory.",
+    post: "https://www.instagram.com/desidata.info/",
+    page: "maps/dynasty-in-democracy.html",
   },
   {
     topic: "Business",
-    "title": "Startups with a woman director, 2025",
-    "image": "maps_images/female_director.webp",
-    "alt": "Statewise counts of startups with at least one woman director.",
-    "post": "https://www.instagram.com/desidata.info/"
+    title: "Startups with a woman director, 2025",
+    image: "maps_images/female_director.webp",
+    alt: "Statewise counts of startups with at least one woman director.",
+    post: "https://www.instagram.com/desidata.info/",
+    page: "maps/startups-woman-director.html",
   },
   {
     topic: "Search trends",
-    "title": "Where India searched for “Ghibli”",
-    "image": "maps_images/ghibli.webp",
-    "alt": "Relative Google search interest by state, March 24–31, 2025.",
-    "post": "https://www.instagram.com/desidata.info/"
+    title: "Where India searched for \"Ghibli\"",
+    image: "maps_images/ghibli.webp",
+    alt: "Relative Google search interest by state, March 24–31, 2025.",
+    post: "https://www.instagram.com/desidata.info/",
+    page: "maps/where-india-searched-ghibli.html",
   },
   {
     topic: "Public health",
-    "title": "HIV prevalence in India, 2023",
-    "image": "maps_images/hiv_pos.webp",
-    "alt": "Map of HIV prevalence percentages by state and union territory.",
-    "post": "https://www.instagram.com/desidata.info/"
+    title: "HIV prevalence in India, 2023",
+    image: "maps_images/hiv_pos.webp",
+    alt: "Map of HIV prevalence percentages by state and union territory.",
+    post: "https://www.instagram.com/desidata.info/",
+    page: "maps/hiv-prevalence-india-2023.html",
   },
   {
     topic: "Search trends",
@@ -43,7 +46,8 @@ const maps = [
     title: "How India googled the Cockroach Janta Party",
     image: "maps_images/cockroach_trend.png",
     alt: "Google Trends map of relative search interest across India, May 19–21",
-    post: "https://www.instagram.com/desidata.info/"
+    post: "https://www.instagram.com/desidata.info/",
+    page: "maps/cockroach-janta-party.html",
   },
   {
     topic: "Connectivity",
@@ -52,7 +56,8 @@ const maps = [
     title: "Internet penetration in rural India",
     image: "maps_images/internet-preview.jpg",
     alt: "Frame from a district-by-district animation of rural internet penetration",
-    post: "https://www.instagram.com/desidata.info/"
+    post: "https://www.instagram.com/desidata.info/",
+    page: "maps/internet-penetration-rural-india.html",
   },
   {
     topic: "Public health",
@@ -61,7 +66,8 @@ const maps = [
     title: "Condom use in India, 2019–20",
     image: "maps_images/condom_north.png",
     alt: "Map showing couples using condoms per 10,000 unsterilized couples across Indian states and territories",
-    post: "https://www.instagram.com/p/C8BgXSPthpH/"
+    post: "https://www.instagram.com/p/C8BgXSPthpH/",
+    page: "maps/condom-use-india.html",
   }
 ];
 
